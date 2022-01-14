@@ -1,15 +1,15 @@
 # Docker image with Combodo iTop
 
-Starting from 2.5.0-beta the image is based on [phusion/baseimage](https://hub.docker.com/r/phusion/baseimage/) and uses runit to manage services (apache, mysql, etc).
+The image is based on [phusion/baseimage](https://hub.docker.com/r/phusion/baseimage/) and uses runit to manage services (apache, mysql, etc).
 
 [![](https://images.microbadger.com/badges/version/vbkunin/itop.svg)](http://microbadger.com/images/vbkunin/itop "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/vbkunin/itop.svg)](https://microbadger.com/images/vbkunin/itop "Get your own image badge on microbadger.com")
 
 ## 使用
 
-Run new iTop 2.7.0-beta (see tags for other iTop versions) container named *my-itop*:
+Run new iTop 3.0.0-beta (see tags for other iTop versions) container named *my-itop*:
 ```
-sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.0-beta
+sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:3.0.0-beta
 ```
 Then go to [http://localhost:8000/](http://localhost:8000/) to continue the installation.
 
@@ -21,7 +21,7 @@ or use username *root* with blank password.
 
 Expose iTop extensions folder if you need it:
 ```
-sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/www/html/extensions vbkunin/itop:2.7.0-beta
+sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/www/html/extensions vbkunin/itop:3.0.0-beta
 ```
 
 ### Image without MySQL
@@ -29,7 +29,7 @@ sudo docker run -d -p 8000:80 --name=my-itop -v /home/user/itop-extensions:/var/
 Starting from 2.6.0 you can get `base` image without MySQL database server (only Apache and PHP) to use with your own one:
 
 ```
-sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:2.7.0-beta-base
+sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:3.0.0-beta-base
 ```
 
 ### Useful scripts and helpers
@@ -39,7 +39,7 @@ The image ships with several useful scripts you can run like this:
 sudo docker exec my-itop /script-name.sh [script_params]
 ```
 
-If you need the [iTop Toolkit](https://www.itophub.io/wiki/page?id=2_7_0:customization:datamodel#installing_the_toolkit) you can simply get this:
+If you need the [iTop Toolkit](https://www.itophub.io/wiki/page?id=3_0_0:customization:datamodel#installing_the_toolkit) you can simply get this:
 ```
 sudo docker exec my-itop /install-toolkit.sh
 ```
@@ -48,7 +48,7 @@ A cron setup helper is aboard:
 ```
 sudo docker exec my-itop /setup-itop-cron.sh Cron Pa$5w0rD
 ```
-Then you should create iTop user account with login *Cron* and password *Pa$5w0rD* and grant him Administrator profile. Starting from v2.3.3 the third argument (optional) is the absolute path to the log file or `--without-logs` key. By default, the log file is `/var/log/itop-cron.log`.
+Then you should create iTop user account with login *Cron* and password *Pa$5w0rD* and grant him Administrator profile. The third argument (optional) is the absolute path to the log file or `--without-logs` key. By default, the log file is `/var/log/itop-cron.log`.
 
 There are other scripts:
 
@@ -60,9 +60,9 @@ There are other scripts:
 
 If you're using this image for development (especially with PhpStorm), there are a few things for you.
 
-- install-xdebug.sh – install [Xdebug](https://xdebug.org) PHP extension and setup it for [remote debugging](https://xdebug.org/docs/remote). Two arguments are `xdebug.remote_port` and `xdebug.idekey` (defaults are `9000` and `PHPSTORM`, respectively).
+- install-xdebug.sh – install [Xdebug](https://xdebug.org) PHP extension and setup it for [remote debugging](https://xdebug.org/docs/remote). Two arguments are `xdebug.client_port` and `xdebug.idekey` (defaults are `9003` and `PHPSTORM`, respectively).
   ```
-  sudo docker exec my-itop /install-xdebug.sh [remote_port] [idekey]
+  sudo docker exec my-itop /install-xdebug.sh [client_port] [idekey]
   ```
 
 - start-itop-cron-debug.sh – start remote debugging of iTop background tasks script (cron.php). The first two arguments are iTop user and his password (`admin` and `password`) and the third argument is debug server configuration name (default is `localhost`) in PhpStorm which specified through PHP_IDE_CONFIG environment variable ([more details](https://www.jetbrains.com/help/phpstorm/zero-configuration-debugging-cli.html#d13593f7)).
