@@ -5,6 +5,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG ITOP_VERSION=3.0.0-beta
 ARG ITOP_FILENAME=iTop-3.0.0-beta-7312.zip
 
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+RUN apt-get clean
+RUN apt-get update
+
 RUN apt-get install -y software-properties-common \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
