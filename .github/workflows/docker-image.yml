@@ -17,6 +17,6 @@ jobs:
     - name: Login to alli
       run:  docker login registry.cn-shanghai.aliyuncs.com -u ${{ secrets.ALI_USER }} --password ${{ secrets.ALI_PWD }}
     - name: Build the tagged Docker image
-      run: docker build ./base registry.cn-shanghai.aliyuncs.com/bcx86/itop_base:1.0
+      run: docker build . -f base/Dockerfile -t registry.cn-shanghai.aliyuncs.com/bcx86/itop_base:1.0
     - name: Push the tagged Docker image
       run: docker push registry.cn-shanghai.aliyuncs.com/bcx86/itop_base:1.0
