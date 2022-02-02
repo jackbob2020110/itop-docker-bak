@@ -1,10 +1,9 @@
-name: Docker Image CI
+name: Build PHP image for ITOP
 
 on:
   push:
-    branches: [ Dev ]
-  pull_request:
-    branches: [ Dev ]
+    branches:
+    - 'Dev'
 
 jobs:
 
