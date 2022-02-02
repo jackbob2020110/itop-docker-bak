@@ -1,5 +1,5 @@
-FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:1.0
-MAINTAINER Vladimir Kunin <vladimir@knowitop.ru>
+FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
+MAINTAINER Jun
 
 RUN apt-get update && apt-get install -y software-properties-common \
     && apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc' \

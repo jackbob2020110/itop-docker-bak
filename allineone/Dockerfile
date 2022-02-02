@@ -1,4 +1,4 @@
-FROM vbkunin/itop:3.0.0-beta-base
+FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
 MAINTAINER Vladimir Kunin <vladimir@knowitop.ru>
 
 RUN apt-get update && apt-get install -y software-properties-common \

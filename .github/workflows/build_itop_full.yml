@@ -1,0 +1,20 @@
+name: Build itop Full
+
+on:
+  push:
+    branches: [ Dev ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to alli
+      run:  docker login registry.cn-shanghai.aliyuncs.com -u ${{ secrets.ALI_USER }} --password ${{ secrets.ALI_PWD }}
+    - name: Build the tagged Docker image
+      run: cd allineone && docker build . -t registry.cn-shanghai.aliyuncs.com/bcx86/itop-full:v3.0
+    - name: Push the tagged Docker image
+      run: docker push registry.cn-shanghai.aliyuncs.com/bcx86/itop-full:v3.0
