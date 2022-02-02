@@ -9,7 +9,7 @@ The image is based on [phusion/baseimage](https://hub.docker.com/r/phusion/basei
 
 Run new iTop 3.0.0-beta (see tags for other iTop versions) container named *my-itop*:
 ```
-sudo docker run -d -p 8000:80 --name=my-itop vbkunin/itop:3.0.0-beta
+sudo docker run -d -p 8000:80 --name=my-itop registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
 ```
 Then go to [http://localhost:8000/](http://localhost:8000/) to continue the installation.
 

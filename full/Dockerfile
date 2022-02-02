@@ -1,9 +1,6 @@
-FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:1.0
-MAINTAINER Vladimir Kunin <vladimir@knowitop.ru>
+FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:base
+MAINTAINER Jun
 
-RUN apt-get update && apt-get install -y software-properties-common \
-    && apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc' \
-    && add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.klaus-uwe.me/mariadb/repo/10.3/ubuntu bionic main'
 RUN apt-get update && apt-get install -y mariadb-server pwgen \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
