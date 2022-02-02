@@ -1,4 +1,4 @@
-FROM phpbase:1.0
+FROM registry.cn-shanghai.aliyuncs.com/bcx86/php-for-itop:7.4
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG ITOP_VERSION=3.0.0
