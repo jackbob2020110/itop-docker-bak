@@ -1,15 +1,9 @@
 name: Build PHP image for ITOP
 
 on:
-<<<<<<< HEAD
   push:
     branches:
       - 'Dev'
-
-=======
-  workflow_dispatch:
->>>>>>> 30e2ce783699645e6d3c8469f33d3b146bbfaaa0
-
 
 jobs:
 
