@@ -2,7 +2,8 @@ name: Build PHP image for ITOP
 
 on:
   workflow_dispatch:
-  
+
+
 jobs:
 
   build:
@@ -13,12 +14,6 @@ jobs:
     
     - uses: actions/checkout@v2
     
-    - name: Set time zone
-      uses: szenius/set-timezone@v1.0
-      with:
-          timezoneLinux: "Asia/Shanghai"
-          timezoneMacos: "Asia/Shanghai"
-          timezoneWindows: "China Standard Time"
     - name: Login to alli
       run:  docker login registry.cn-shanghai.aliyuncs.com -u ${{ secrets.ALI_USER }} --password ${{ secrets.ALI_PWD }}
     - name: Build the tagged Docker image
