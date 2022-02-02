@@ -1,9 +1,15 @@
 name: Build itop Full
 
 on:
+<<<<<<< HEAD
   push:
     branches:
       - 'Dev'
+=======
+  schedule:
+    - cron: '40 19 * * *' # GMT 14:00 => 北京时间 2:00
+  workflow_dispatch:
+>>>>>>> 30e2ce783699645e6d3c8469f33d3b146bbfaaa0
 
 
 jobs:
