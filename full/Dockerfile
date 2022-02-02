@@ -1,14 +1,7 @@
 FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
 MAINTAINER Jun
 
-RUN apt-get update && apt-get install -y software-properties-common \
-    && apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc' \
-    && add-apt-repository 'deb [arch=amd64,arm64,ppc64el] https://mirror.klaus-uwe.me/mariadb/repo/10.3/ubuntu bionic main'
-RUN apt-get update && apt-get install -y mariadb-server pwgen \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /var/lib/mysql/*
-    # Remove pre-installed database
+RUN apt install -y mariadb-server
 
 COPY service /etc/service/
 COPY artifacts/scripts /

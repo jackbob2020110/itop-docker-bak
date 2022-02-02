@@ -10,7 +10,7 @@ RUN apt-get install -y software-properties-common ca-certificates \
     && apt-get update \
     && apt-get install -y \
         apache2 \
-        php7.4 php7.4-xml php7.4-mysql php7.4-json php7.4-mbstring php7.4-ldap php7.4-soap php7.4-zip php7.4-gd php-apcu \
+        php7.4 php7.4-xml php7.4-mysql php7.4-json php7.4-mbstring php7.4-ldap php7.4-soap php7.4-zip php7.4-gd php7.4-curl php-apcu \
         graphviz \
         curl \
         unzip\
