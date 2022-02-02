@@ -1,7 +1,11 @@
 FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
 MAINTAINER Jun
 
-RUN apt install -y mariadb-server
+RUN apt-get update && apt-get install -y mariadb-server pwgen \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/mysql/*
+    # Remove pre-installed database
 
 COPY service /etc/service/
 COPY artifacts/scripts /
