@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - 'Dev'
-<<<<<<< HEAD
-
-=======
->>>>>>> 30e2ce783699645e6d3c8469f33d3b146bbfaaa0
 
 jobs:
 
