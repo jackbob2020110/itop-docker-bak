@@ -1,9 +1,9 @@
 name: Build itop Full
 
 on:
-  schedule:
-    - cron: '00 20 * * *' # GMT 14:00 => 北京时间 2:00
-  workflow_dispatch:
+  push:
+    branches:
+      - 'Dev'
 
 
 jobs:
