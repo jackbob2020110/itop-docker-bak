@@ -1,9 +1,10 @@
 name: Build itop image
 
 on:
-  schedule:
-    - cron: '30 19 * * *' # GMT 14:00 => 北京时间 2:00
-  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+      - 'Dev'
 
 jobs:
 
