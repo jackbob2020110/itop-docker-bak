@@ -1,4 +1,4 @@
-FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:v3.0
+FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:base
 MAINTAINER Jun
 
 RUN apt-get update && apt-get install -y mariadb-server pwgen \
