@@ -3,7 +3,6 @@ name: Build itop image
 on:
   push:
     branches:
-      - 'master'
       - 'Dev'
 
 jobs:
