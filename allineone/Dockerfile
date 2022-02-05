@@ -1,5 +1,4 @@
 FROM registry.cn-shanghai.aliyuncs.com/bcx86/itop:base
-MAINTAINER Vladimir Kunin <vladimir@knowitop.ru>
 
 RUN apt-get update && apt-get install -y mariadb-server pwgen \
     && apt-get clean \
