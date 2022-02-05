@@ -1,8 +1,8 @@
 FROM registry.cn-shanghai.aliyuncs.com/bcx86/php-for-itop:7.4
 
 ARG DEBIAN_FRONTEND=noninteractive
-ARG ITOP_VERSION=3.0.0
-ARG ITOP_FILENAME=iTop-3.0.0-8663.zip
+ARG ITOP_VERSION=2.7.6
+ARG ITOP_FILENAME=iTop-2.7.6-8526.zip
 
 RUN rm -rf /var/www/html/* \
     && mkdir -p /tmp/itop \

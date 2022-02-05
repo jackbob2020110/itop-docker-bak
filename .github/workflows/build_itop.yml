@@ -3,7 +3,7 @@ name: Build itop image
 on:
   push:
     branches:
-      - 'Dev'
+      - '2.7.6'
 
 jobs:
 
@@ -16,6 +16,6 @@ jobs:
     - name: Login to alli
       run:  docker login registry.cn-shanghai.aliyuncs.com -u ${{ secrets.ALI_USER }} --password ${{ secrets.ALI_PWD }}
     - name: Build the tagged Docker image
-      run: cd itop && docker build . -t registry.cn-shanghai.aliyuncs.com/bcx86/itop:base
+      run: cd itop && docker build . -t registry.cn-shanghai.aliyuncs.com/bcx86/itop:base-2.7.6
     - name: Push the tagged Docker image
-      run: docker push registry.cn-shanghai.aliyuncs.com/bcx86/itop:base
+      run: docker push registry.cn-shanghai.aliyuncs.com/bcx86/itop:base-2.7.6
