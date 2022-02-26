@@ -15,6 +15,7 @@ RUN apt-get install -y software-properties-common ca-certificates \
         curl \
         unzip\
         git \
+        php-pear php-net-socket php-imap php7.4-imap \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && update-alternatives --set php /usr/bin/php7.4
