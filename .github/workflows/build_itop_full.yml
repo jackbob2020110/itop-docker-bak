@@ -1,4 +1,4 @@
-name: Build itop Full
+name: Build itop web+sql
 #
 on:
   push:

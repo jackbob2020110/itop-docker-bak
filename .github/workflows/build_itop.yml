@@ -1,4 +1,4 @@
-name: Build itop image
+name: Build php+itop image
 
 on:
   push:
