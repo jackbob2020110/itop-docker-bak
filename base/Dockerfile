@@ -2,11 +2,8 @@ FROM phusion/baseimage:focal-1.1.0
 MAINTAINER Vladimir Kunin <we@knowitop.ru>
 
 ARG DEBIAN_FRONTEND=noninteractive
-#ARG ITOP_VERSION=3.0.1
-#ARG ITOP_FILENAME=iTop-3.0.1-9191.zip
-
-ARG ITOP_VERSION=2.7.6
-ARG ITOP_FILENAME=iTop-2.7.6-8526.zip
+ARG ITOP_VERSION=3.0.1
+ARG ITOP_FILENAME=iTop-3.0.1-9191.zip
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 && sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
