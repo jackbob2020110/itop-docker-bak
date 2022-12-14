@@ -5,6 +5,11 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG ITOP_VERSION=3.0.1
 ARG ITOP_FILENAME=iTop-3.0.1-9191.zip
 
+RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+&& sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+&& echo "Asia/Shanghai" > /etc/timezone \
+&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 RUN apt-get install -y software-properties-common ca-certificates \
     && add-apt-repository -y ppa:ondrej/php \
     && apt-get update \
@@ -14,6 +19,7 @@ RUN apt-get install -y software-properties-common ca-certificates \
         graphviz \
         curl \
         unzip\
+        php-pear php-net-socket php-imap php7.4-imap \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && update-alternatives --set php /usr/bin/php7.4
@@ -49,6 +55,10 @@ RUN ln -s /make-itop-config-writable.sh /usr/local/bin/conf-w \
     && chmod u+w /var/www/html /var/www/html/log /var/www/html/data
 
 WORKDIR /var/www/html
+
+VOLUME /var/www/html/conf
+VOLUME /var/www/html/log
+VOLUME /var/www/html/data
 
 EXPOSE 80
 
