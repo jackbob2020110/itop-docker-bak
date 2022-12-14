@@ -10,7 +10,7 @@ while [[ RET -ne 0 ]]; do
     RET=$?
 done
 
-PASS=${MYSQL_PASS:-$(pwgen -s 12 1)}
+PASS="admin123"
 _word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
 echo "=> Creating MySQL admin user with ${_word} password"
 
@@ -31,5 +31,13 @@ echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "MySQL user 'root' has no password but only allows local connections"
 echo "========================================================================"
+
+CONF=/etc/mysql/mariadb.conf.d/90-bind-address.cnf
+
+echo "[mysqld]" > ${CONF}
+echo "bind-address=0.0.0.0" >> ${CONF}
+
+echo "Config added (${CONF}):"
+cat ${CONF}
 
 mysqladmin -uroot shutdown
