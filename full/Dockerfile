@@ -1,4 +1,4 @@
-FROM registry.cn-shanghai.aliyuncs.com/bcpublic/itopbase:2.7.6
+FROM registry.cn-shanghai.aliyuncs.com/bcpublic/itop:base-3.0
 MAINTAINER Vladimir Kunin <we@knowitop.ru>
 
 #RUN apt-get update && apt-get install -y software-properties-common \
