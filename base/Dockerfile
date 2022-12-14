@@ -59,7 +59,7 @@ RUN ln -s /make-itop-config-writable.sh /usr/local/bin/conf-w \
 
 WORKDIR /var/www/html
 
-VOLUME ["/var/www/html/conf", "/var/www/html/data", "/var/www/html/env-production", "/var/www/html/log"]
+VOLUME ["/var/www/html/conf", "/var/www/html/data","/var/www/html/log"]
 
 EXPOSE 80
 
